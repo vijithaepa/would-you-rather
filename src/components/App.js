@@ -1,16 +1,31 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
+import { LoadingBar } from "react-redux-loading";
+import Home from "./Home";
+import { connect } from 'react-redux'
+import { handleInitialData } from '../actions/shared'
+import Nav from "./Nav";
 
 class App extends Component {
 
-    render() {
+    componentDidMount() {
+        this.props.dispatch(handleInitialData())
+    }
 
-        return(
-            <div>
-                App
+    render() {
+        return (
+            <div className='container'>
+                <LoadingBar/>
+                <Nav />
+                <Home/>
             </div>
         )
     }
 }
 
+function mapStateToProps({authedUser}) {
+    return {
+        loading: authedUser === null
+    }
+}
 
-export default App;
+export default connect(mapStateToProps)(App)
