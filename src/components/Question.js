@@ -1,17 +1,22 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { formatQuestion } from "../utils/helpers";
-import {Link, withRouter} from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import Poll from "./Poll";
+import Result from "./Result";
 
 class Question extends Component {
 
     render() {
         const {question, answered} = this.props
-
+        console.log("Answeerd ", answered, question)
         return (
-            <Link to={`/questions/${question.id}`} className='tweet'>
-                <span>{answered}</span>
-            </Link>
+            <div>
+            { answered && answered === true
+                ? <Result />
+                : <Poll />
+            }
+            </div>
         )
     }
 }
@@ -21,7 +26,7 @@ class Question extends Component {
 function mapStateToProps({questions, users, authedUser}, props) {
     const {id} = props.match.params
     const question = questions[id]
-    console.log('Loading', id, users)
+    console.log('Loading', id,authedUser, users)
     return {
         authedUser,
         answered: users[authedUser].answers[id],
