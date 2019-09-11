@@ -46,26 +46,11 @@ a {
 .active {
   font-weight: bold;
 }
+.nav.nav-tabs .nav-link.active {
+  background-color: #107126;
+  color: #fff;
+}
 
-/*.nav ul {*/
-/*  display: flex;*/
-/*  flex-direction: row;*/
-/*  justify-content: flex-start;*/
-/*  text-decoration: none;*/
-/*}*/
-
-/*.nav li:first-child {*/
-/*  padding-left: 0;*/
-/*}*/
-/*ul {*/
-/*  padding-left: 0;*/
-/*}*/
-
-/*li {*/
-/*  list-style-type: none;*/
-/*  padding: 10px;*/
-/*  text-decoration: none;*/
-/*}*/
 hr {
   display: block;
   margin-before: 0.5em;

@@ -1,9 +1,23 @@
-import React, { Component } from 'react'
-import { formatQuestion } from "../utils/helpers";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import React, {Component} from 'react'
+import {formatQuestion} from "../utils/helpers";
+import {connect} from "react-redux";
+import {Link, withRouter} from "react-router-dom";
 
 class Poll extends Component {
+
+    submitPoll = (e, id) => {
+        e.preventDefault()
+        const {dispatch, tweet, authedUser} = this.props
+
+        // dispatch(handleUpdateAnswer({
+        //     id: tweet.id,
+        //     hasLiked: !tweet.hasLiked,
+        //     authedUser,
+        // }))
+
+        // Redirect to parent tweet
+        this.props.history.push(`/questions/${id}`) // When rendered by react-router
+    }
 
     render() {
         const {question} = this.props
@@ -18,21 +32,23 @@ class Poll extends Component {
                     <h5 className='mt-0'>{question.name}</h5>
                     <div className='question-header'> Would you rather</div>
 
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample1"
+                    <div className="custom-control custom-radio">
+                        <input type="radio" className="custom-control-input" id="defaultGroupExample1"
                                name="groupOfDefaultRadios"/>
-                        <label class="custom-control-label" for="defaultGroupExample1">{question.optionOne.text}</label>
+                        <label className="custom-control-label" htmlFor="defaultGroupExample1">{question.optionOne.text}</label>
                     </div>
 
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="custom-control-input" id="defaultGroupExample2"
+                    <div className="custom-control custom-radio">
+                        <input type="radio" className="custom-control-input" id="defaultGroupExample2"
                                name="groupOfDefaultRadios"/>
-                        <label class="custom-control-label" for="defaultGroupExample2">{question.optionTwo.text}</label>
+                        <label className="custom-control-label" htmlFor="defaultGroupExample2">{question.optionTwo.text}</label>
                     </div>
 
-                    <button className='' onClick={this.viewPoll}>
-                        Submit
-                    </button>
+                    {/*<Link to={`/questions/${question.id}`}>*/}
+                        <button className='' onClick={(e) => this.submitPoll(e, id)}>
+                            Submit
+                        </button>
+                    {/*</Link>*/}
                 </div>
             </div>
         )

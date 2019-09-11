@@ -5,42 +5,39 @@ import QuestionSummary from "./QuestionSummary";
 
 class Home extends Component {
 
-    state = {
-        answered: {},
-        unAnswered: {}
-    }
-
-    filterAnswered = () => {
-        //filter from props and set to state
-    }
-
-    filterUnanswered = () => {
-//filter from props and set to state
-    }
-
     render() {
         return (
             <div className='container'>
-                    <h3></h3>
-                <div className="row">
-                    <div className="col-sm">
-                        <button className='' onClick={this.filterUnanswered}>
-                            Unanswered Questions
-                        </button>
-                        <div>
-                            <ul className='list-group'>
-                                {this.props.questionIds.map(id => (
-                                    <li key={id} className='list-group-item'>
-                                        <QuestionSummary id={id}/>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+
+                <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    <li className="nav-item">
+                        <a className="nav-link active" id="home-tab" data-toggle="tab" href="#unanswered" role="tab"
+                           aria-controls="home" aria-selected="true">Unanswered</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" id="profile-tab" data-toggle="tab" href="#answered" role="tab"
+                           aria-controls="profile" aria-selected="false">Answered</a>
+                    </li>
+                </ul>
+                <div className="tab-content" id="myTabContent">
+                    <div className="tab-pane fade show active" id="unanswered" role="tabpanel"
+                         aria-labelledby="home-tab">
+                        <ul className='list-group'>
+                            {this.props.unAnsweredIds.map(id => (
+                                <li key={id} className='list-group-item'>
+                                    <QuestionSummary id={id}/>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                    <div className="col-sm">
-                        <button className='' onClick={this.filterAnswered}>
-                            Answered Questions
-                        </button>
+                    <div className="tab-pane fade" id="answered" role="tabpanel" aria-labelledby="profile-tab">
+                        <ul className='list-group'>
+                            {this.props.answeredIds.map(id => (
+                                <li key={id} className='list-group-item'>
+                                    <QuestionSummary id={id}/>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -48,13 +45,14 @@ class Home extends Component {
     }
 }
 
-
-
 function mapStateToProps({questions, users, authedUser}) {
 
     return {
-        questionIds: Object.keys(questions)
+        unAnsweredIds: Object.keys(questions)
             .filter((qid) => !users[authedUser].answers[qid])
+            .sort((a, b) => questions[b].timestamp - questions[a].timestamp),
+        answeredIds: Object.keys(questions)
+            .filter((qid) => users[authedUser].answers[qid])
             .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
     }
 }

@@ -35,7 +35,6 @@ export default function Nav() {
                     </li>
                 </ul>
             </div>
-            <hr/>
         </nav>
     )
 }
