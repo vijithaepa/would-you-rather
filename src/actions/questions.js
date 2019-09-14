@@ -58,7 +58,7 @@ export const handleUpdateAnswer = (answer) => {
 // asynchronous action creator
 export const handleSaveQuestion = (question) => {
     return (dispatch, getState) => {
-        const {authedUser} = getState()
+        // const {authedUser} = getState()
         dispatch(showLoading())
         return saveQuestion(question)
             .then((question) => dispatch(addQuestion(question)))

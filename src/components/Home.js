@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from "react-redux";
-import Question from "./Question";
-import QuestionSummary from "./QuestionSummary";
+import { connect } from "react-redux"
+import QuestionSummary from "./QuestionSummary"
 
 class Home extends Component {
 

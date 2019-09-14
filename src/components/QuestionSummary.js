@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Link, NavLink, withRouter} from "react-router-dom";
-import { formatQuestion } from "../utils/helpers";
+import {Link} from "react-router-dom"
 
 class QuestionSummary extends Component {
 

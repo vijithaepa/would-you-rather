@@ -1,27 +1,19 @@
 import React, {Component} from 'react'
 import {formatQuestion} from "../utils/helpers";
 import {connect} from "react-redux";
-import {Link, withRouter} from "react-router-dom";
+import { withRouter} from "react-router-dom";
 
 class Poll extends Component {
 
     submitPoll = (e, id) => {
         e.preventDefault()
-        const {dispatch, tweet, authedUser} = this.props
-
-        // dispatch(handleUpdateAnswer({
-        //     id: tweet.id,
-        //     hasLiked: !tweet.hasLiked,
-        //     authedUser,
-        // }))
-
         // Redirect to parent tweet
         this.props.history.push(`/questions/${id}`) // When rendered by react-router
     }
 
     render() {
         const {question} = this.props
-        const {id, name, avatar} = question
+        const {id, avatar} = question
         return (
             <div className='media'>
                 <img

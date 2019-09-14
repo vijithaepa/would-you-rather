@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { LoadingBar } from "react-redux-loading";
-import Home from "./Home";
+import { LoadingBar } from "react-redux-loading"
+import Home from "./Home"
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import Nav from "./Nav";
-import Question from "./Question";
-import QuestionSummary from "./QuestionSummary";
+import Nav from "./Nav"
+import Question from "./Question"
 
 class App extends Component {
 
