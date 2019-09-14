@@ -1,4 +1,4 @@
-import { RECEIVE_USERS } from "../actions/users";
+import { RECEIVE_USERS, UPDATE_USER } from "../actions/users";
 
 const users = (state = {}, action) => {
     switch (action.type) {
@@ -6,6 +6,17 @@ const users = (state = {}, action) => {
             return {
                 ...state,
                 ...action.users
+            }
+        case UPDATE_USER:
+            return {
+                ...state,
+                [action.authedUser]: {
+                    ...state[action.authedUser],
+                    answers: {
+                        ...state[action.authedUser].answers,
+                        [action.qid]: action.answer
+                    }
+                }
             }
         default:
             return state

@@ -1,14 +1,35 @@
-import React, {Component} from 'react'
-import {formatQuestion} from "../utils/helpers";
-import {connect} from "react-redux";
-import { withRouter} from "react-router-dom";
+import React, { Component } from 'react'
+import { formatQuestion } from "../utils/helpers";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { handleSaveAnswer } from "../actions/shared";
 
 class Poll extends Component {
 
-    submitPoll = (e, id) => {
+    state = {
+        answer: '',
+    }
+
+    handleChange = (e) => {
+        const answer = e.target.value
+        this.setState(() => ({
+            answer
+        }))
+    }
+
+    submitPoll = (e, qid) => {
         e.preventDefault()
+        const {dispatch, authedUser} = this.props
+        const {answer} = this.state
+
+        dispatch(handleSaveAnswer({
+            authedUser,
+            qid,
+            answer,
+        }))
+
         // Redirect to parent tweet
-        this.props.history.push(`/questions/${id}`) // When rendered by react-router
+        this.props.history.push(`/questions/${qid}`) // When rendered by react-router
     }
 
     render() {
@@ -26,21 +47,21 @@ class Poll extends Component {
 
                     <div className="custom-control custom-radio">
                         <input type="radio" className="custom-control-input" id="defaultGroupExample1"
-                               name="groupOfDefaultRadios"/>
-                        <label className="custom-control-label" htmlFor="defaultGroupExample1">{question.optionOne.text}</label>
+                               name="groupOfDefaultRadios" value='optionOne' onChange={this.handleChange}/>
+                        <label className="custom-control-label"
+                               htmlFor="defaultGroupExample1">{question.optionOne.text}</label>
                     </div>
 
                     <div className="custom-control custom-radio">
                         <input type="radio" className="custom-control-input" id="defaultGroupExample2"
-                               name="groupOfDefaultRadios"/>
-                        <label className="custom-control-label" htmlFor="defaultGroupExample2">{question.optionTwo.text}</label>
+                               name="groupOfDefaultRadios" value='optionTwo' onChange={this.handleChange}/>
+                        <label className="custom-control-label"
+                               htmlFor="defaultGroupExample2">{question.optionTwo.text}</label>
                     </div>
 
-                    {/*<Link to={`/questions/${question.id}`}>*/}
-                        <button className='' onClick={(e) => this.submitPoll(e, id)}>
-                            Submit
-                        </button>
-                    {/*</Link>*/}
+                    <button className='' onClick={(e) => this.submitPoll(e, id)}>
+                        Submit
+                    </button>
                 </div>
             </div>
         )

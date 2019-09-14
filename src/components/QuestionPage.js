@@ -5,11 +5,10 @@ import { withRouter } from "react-router-dom";
 import Poll from "./Poll";
 import Result from "./Result";
 
-class Question extends Component {
+class QuestionPage extends Component {
 
     render() {
-        const {question, answered} = this.props
-        console.log("Answeerd ", answered, question)
+        const {answered} = this.props
         return (
             <div>
             { answered && answered === true
@@ -26,7 +25,6 @@ class Question extends Component {
 function mapStateToProps({questions, users, authedUser}, props) {
     const {id} = props.match.params
     const question = questions[id]
-    console.log('Loading', id,authedUser, users)
     return {
         authedUser,
         answered: users[authedUser].answers[id],
@@ -36,4 +34,4 @@ function mapStateToProps({questions, users, authedUser}, props) {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Question))
+export default withRouter(connect(mapStateToProps)(QuestionPage))

@@ -22,38 +22,31 @@ const addQuestion = (question) => {
 }
 
 // To Store
-const updateAnswer = ({id, authedUser, hasLiked}) => {
+export const saveAnswer = ({authedUser, qid, answer}) => {
     return {
         type: SAVE_ANSWER,
-        id,
-        authedUser,
-        hasLiked
+        qid,
+        answer,
+        authedUser
     }
 }
 
-// To Store
-const removeAnswer = ({id, authedUser, hasLiked}) => {
-    return {
-        type: REMOVE_ANSWER,
-        id,
-        authedUser,
-        hasLiked
-    }
-}
-
-// asynchronous action creator
-export const handleUpdateAnswer = (answer) => {
-    return (dispatch) => {
-        dispatch(updateAnswer(answer))
-
-        return saveQuestionAnswer(answer)
-            .catch((e) => {
-                console.warn("Error in handle Saving Answer")
-                dispatch(removeAnswer(answer))
-                alert('There was an error Saving Answer, try again')
-            })
-    }
-}
+// // asynchronous action creator
+// export const handleSaveAnswer = (answer) => {
+//     return (dispatch) => {
+//         // dispatch(saveAnswer(answer))
+//         return saveQuestionAnswer(answer)
+//             .then(e => {
+//                 dispatch(saveAnswer(answer))
+//                 dispatch(updateUser(answer))
+//             })
+//             .catch((e) => {
+//                 console.warn("Error in handle Saving Answer", e)
+//                 // dispatch(removeAnswer(answer))
+//                 // alert('There was an error Saving Answer, try again')
+//             })
+//     }
+// }
 
 // asynchronous action creator
 export const handleSaveQuestion = (question) => {

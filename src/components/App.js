@@ -5,7 +5,7 @@ import Home from "./Home"
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Nav from "./Nav"
-import Question from "./Question"
+import Question from "./QuestionPage"
 
 class App extends Component {
 
