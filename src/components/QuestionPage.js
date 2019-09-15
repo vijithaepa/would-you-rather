@@ -23,7 +23,7 @@ class QuestionPage extends Component {
 // passing state as 1st parameter
 // Passing parameter to store is the 2nd parameter
 function mapStateToProps({questions, users, authedUser}, props) {
-    const {id} = props.match.params
+    const {id} = props.match.params     // Reading from browser URL params 'id'
     const question = questions[id]
     return {
         authedUser,

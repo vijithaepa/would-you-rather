@@ -7,6 +7,8 @@ import { handleInitialData } from '../actions/shared'
 import Nav from "./Nav"
 import QuestionPage from "./QuestionPage"
 import NewQuestion from "./NewQuestion";
+import Score from "./Score";
+import LeaderBoard from "./LeaderBoard";
 
 class App extends Component {
 
@@ -28,6 +30,8 @@ class App extends Component {
                                 <Route path='/' exact component={Home}/>
                                 <Route path='/questions/:id' exact component={QuestionPage}/>
                                 <Route path='/add' exact component={NewQuestion}/>
+                                <Route path='/leaderboard' exact component={LeaderBoard}/>
+                                {/*<Route path='/score' exact render={() => <Score id='sarahedo'/>} />*/}
                             </div>
                         }
                     </div>

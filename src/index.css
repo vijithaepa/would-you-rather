@@ -117,3 +117,27 @@ button.btn.btn-primary {
 .media img {
   margin: 0px 80px;
 }
+
+.score-list {
+  list-style-type: none;
+
+}
+
+.score-heading {
+  border: 1px groove;
+  height: 50px;
+  padding: 15px 28px
+}
+
+.score-value {
+  border: 1px groove;
+  height: 80px;
+  padding: 27px 23px 0px 20px;
+}
+
+.score-value .value {
+  border: 1px groove;
+  padding: 25px;
+  border-radius: 30px;
+  background-color: #39b9c0;
+}
