@@ -67,32 +67,19 @@ hr {
 .avatar {
   height: 110px;
 }
+.rather-text {
+  height: 30px;
+  padding: 10px 0;
+}
 
-/*.question {*/
-/*  width: 100%;*/
-/*  max-width: 590px;*/
-/*  padding: 10px;*/
-/*  display: flex;*/
-/*  margin: 0 auto;*/
-/*  border: 1px solid #dad7d7;*/
-/*  border-radius: 3px;*/
-/*  cursor: pointer;*/
-/*}*/
+.result {
+  height: 150px;
+  padding: 22px;
+  border-style: groove;
+  border-radius: 8px;
+  margin: 5px 0;
+}
 
-/*.question-info {*/
-/*  margin: 10px;*/
-/*  display: inline-block;*/
-/*  flex-direction: column;*/
-/*}*/
-
-/*span.author {*/
-/*  width: 100%;*/
-/*  display: inline-block;*/
-/*  border: 1px solid #dad7d7;*/
-/*  order-radius: 5px;*/
-/*}*/
-
-/*.question-info .question-header {*/
-/*  font-weight: bold;*/
-/*  margin-right: 5px;*/
-/*}*/
+.result.voted {
+  background: #c3dcdb;
+}

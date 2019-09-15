@@ -27,7 +27,7 @@ function mapStateToProps({questions, users, authedUser}, props) {
     const question = questions[id]
     return {
         authedUser,
-        answered: users[authedUser].answers[id],
+        answered: !!users[authedUser].answers[id],
         question: question
             ? formatQuestion(question, users[question.author], authedUser)
             : null

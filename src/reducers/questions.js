@@ -25,8 +25,6 @@ const questions = (state = {}, action) => {
                     }
                 }
             }
-
-
         default:
             return state
     }

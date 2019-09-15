@@ -28,7 +28,7 @@ class Poll extends Component {
             answer,
         }))
 
-        // Redirect to parent tweet
+        // Redirect to Question Page
         this.props.history.push(`/questions/${qid}`) // When rendered by react-router
     }
 
@@ -71,10 +71,8 @@ class Poll extends Component {
 function mapStateToProps({questions, users, authedUser}, props) {
     const {id} = props.match.params
     const question = questions[id]
-    console.log('Loading', id, authedUser, users)
     return {
         authedUser,
-        answered: users[authedUser].answers[id],
         question: question
             ? formatQuestion(question, users[question.author], authedUser)
             : null
