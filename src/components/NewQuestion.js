@@ -34,7 +34,7 @@ class NewQuestion extends Component {
 
     render() {
         return (
-            <div>
+            <div className='new-question-container'>
                 <h3>Create New Question</h3>
                 <hr/>
                 <h4>Complete the question:</h4>

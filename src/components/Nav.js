@@ -7,11 +7,11 @@ class Nav extends Component{
     render() {
         const {user} = this.props
         return (
-            <nav className='navbar navbar-expand-lg navbar-dark bg-dark mx-auto  mb-4'>
+            <nav className='navbar navbar-expand-lg navbar-light bg-light mx-auto  mb-4'>
                 <div className='collapse navbar-collapse'>
                     <ul className='navbar-nav mr-auto'>
-                        <li className='nav-item active'>
-                            <NavLink to='/' exact activeClassName='active' className='nav-link ml-4 mr-4'>
+                        <li className='nav-item'>
+                            <NavLink to='/' exact className='nav-link ml-4 mr-4'>
                                 Home
                             </NavLink>
                         </li>
