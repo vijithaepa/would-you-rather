@@ -1,40 +1,53 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { NavLink } from 'react-router-dom'
+import { connect } from "react-redux";
 
-export default function Nav() {
-    return (
-        <nav className='navbar navbar-expand-lg navbar-dark bg-dark mx-auto  mb-4'>
-            <div className='collapse navbar-collapse'>
-                <ul className='navbar-nav mr-auto'>
-                    <li className='nav-item active'>
-                        <NavLink to='/' exact activeClassName='active' className='nav-link ml-4 mr-4'>
-                            Home
-                        </NavLink>
-                    </li>
-                    <li className='nav-item'>
-                        <NavLink to='/add' className='nav-link ml-4 mr-4'>
-                            New Question
-                        </NavLink>
-                    </li>
-                    <li className='nav-item'>
-                        <NavLink to='/leaderboard' className='nav-link ml-4 mr-4'>
-                            Leader Board
-                        </NavLink>
-                    </li>
-                </ul>
-                <ul className='navbar-nav'>
-                    <li className='nav-item'>
+class Nav extends Component{
+
+    render() {
+        const {user} = this.props
+        return (
+            <nav className='navbar navbar-expand-lg navbar-dark bg-dark mx-auto  mb-4'>
+                <div className='collapse navbar-collapse'>
+                    <ul className='navbar-nav mr-auto'>
+                        <li className='nav-item active'>
+                            <NavLink to='/' exact activeClassName='active' className='nav-link ml-4 mr-4'>
+                                Home
+                            </NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink to='/add' className='nav-link ml-4 mr-4'>
+                                New Question
+                            </NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink to='/leaderboard' className='nav-link ml-4 mr-4'>
+                                Leader Board
+                            </NavLink>
+                        </li>
+                    </ul>
+                    <ul className='navbar-nav'>
+                        <li className='nav-item'>
                         <span className='nav-link ml-4 mr-4'>
-                            Hello -- Name --
+                            Hello, { user && user.name }
                         </span>
-                    </li>
-                    <li className='nav-item'>
-                        <NavLink to='/login' className='nav-link ml-4 mr-4'>
-                            Logout
-                        </NavLink>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    )
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink to='/login' className='nav-link ml-4 mr-4'>
+                                Logout
+                            </NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        )
+    }
 }
+
+function mapStateToProps({users, authedUser}) {
+    return {
+        user: users[authedUser],
+    }
+}
+
+export default connect(mapStateToProps)(Nav)
