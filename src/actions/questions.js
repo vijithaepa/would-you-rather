@@ -14,7 +14,7 @@ export const receiveQuestions = (questions) => {
 }
 
 // To Store
-const addQuestion = (question) => {
+export const addQuestion = (question) => {
     return {
         type: ADD_QUESTION,
         question
@@ -31,30 +31,4 @@ export const saveAnswer = ({authedUser, qid, answer}) => {
     }
 }
 
-// // asynchronous action creator
-// export const handleSaveAnswer = (answer) => {
-//     return (dispatch) => {
-//         // dispatch(saveAnswer(answer))
-//         return saveQuestionAnswer(answer)
-//             .then(e => {
-//                 dispatch(saveAnswer(answer))
-//                 dispatch(updateUser(answer))
-//             })
-//             .catch((e) => {
-//                 console.warn("Error in handle Saving Answer", e)
-//                 // dispatch(removeAnswer(answer))
-//                 // alert('There was an error Saving Answer, try again')
-//             })
-//     }
-// }
 
-// asynchronous action creator
-export const handleSaveQuestion = (question) => {
-    return (dispatch, getState) => {
-        // const {authedUser} = getState()
-        dispatch(showLoading())
-        return saveQuestion(question)
-            .then((question) => dispatch(addQuestion(question)))
-            .then(() => dispatch(hideLoading()))
-    }
-}

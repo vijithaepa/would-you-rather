@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { LoadingBar } from "react-redux-loading"
+import LoadingBar from "react-redux-loading"
 import Home from "./Home"
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import Nav from "./Nav"
 import QuestionPage from "./QuestionPage"
+import NewQuestion from "./NewQuestion";
 
 class App extends Component {
 
@@ -26,6 +27,7 @@ class App extends Component {
                                 {/*<Route path='/' exact render={() => <QuestionSummary id='6ni6ok3ym7mf1p33lnez'/>} />*/}
                                 <Route path='/' exact component={Home}/>
                                 <Route path='/questions/:id' exact component={QuestionPage}/>
+                                <Route path='/add' exact component={NewQuestion}/>
                             </div>
                         }
                     </div>

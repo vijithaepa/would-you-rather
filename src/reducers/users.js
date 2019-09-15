@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, UPDATE_USER } from "../actions/users";
+import { RECEIVE_USERS, UPDATE_USER_ANSWER, UPDATE_USER_QUESTION } from "../actions/users";
 
 const users = (state = {}, action) => {
     switch (action.type) {
@@ -7,7 +7,7 @@ const users = (state = {}, action) => {
                 ...state,
                 ...action.users
             }
-        case UPDATE_USER:
+        case UPDATE_USER_ANSWER:
             return {
                 ...state,
                 [action.authedUser]: {
@@ -18,6 +18,16 @@ const users = (state = {}, action) => {
                     }
                 }
             }
+        case UPDATE_USER_QUESTION:
+            const {author, id} = action.question
+            return {
+                ...state,
+                [author]: {
+                    ...state[author],
+                    questions: state[author].questions.concat(id)
+                }
+            }
+
         default:
             return state
     }

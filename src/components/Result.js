@@ -13,8 +13,6 @@ class Result extends Component {
         const opOnePercent = Math.round((opOneVotes / totalVotes) * 100 * 100) / 100
         const opTwoPercent = Math.round((opTwoVotes / totalVotes) * 100 * 100) / 100
 
-        console.log('Result ', yourVote, authedUser, question)
-
         return (
             <div className='media'>
                 <div><h3> Asked by <span>{author.name}</span></h3></div>
