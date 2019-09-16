@@ -9,6 +9,7 @@ import QuestionPage from "./QuestionPage"
 import NewQuestion from "./NewQuestion";
 import Score from "./Score";
 import LeaderBoard from "./LeaderBoard";
+import Login from "./Login";
 
 class App extends Component {
 
@@ -31,6 +32,7 @@ class App extends Component {
                                 <Route path='/questions/:id' exact component={QuestionPage}/>
                                 <Route path='/add' exact component={NewQuestion}/>
                                 <Route path='/leaderboard' exact component={LeaderBoard}/>
+                                <Route path='/login' exact component={Login}/>
                                 {/*<Route path='/score' exact render={() => <Score id='sarahedo'/>} />*/}
                             </div>
                         }

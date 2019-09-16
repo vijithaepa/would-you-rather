@@ -1,6 +1,3 @@
-import {saveQuestion, saveQuestionAnswer} from "../utils/api";
-import { hideLoading, showLoading } from "react-redux-loading";
-
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'SAVE_QUESTION'
 export const SAVE_ANSWER = 'SAVE_ANSWER'
