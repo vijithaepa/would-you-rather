@@ -6,10 +6,12 @@ class ClassLeaderBoard extends Component {
 
     render() {
         return (
-            <div>
+            <div className='container'>
+                <ul>
                 {this.props.userIds.map(userId => (
-                    <Score id={userId}/>
+                    <li key={userId}><Score id={userId} /></li>
                 ))}
+                </ul>
             </div>
         )
     }

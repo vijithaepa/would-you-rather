@@ -7,10 +7,9 @@ class Home extends Component {
     render() {
         return (
             <div className='container'>
-
                 <ul className="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                    <li className="nav-item">
-                        <a className="nav-link active" id="home-tab" data-toggle="tab" href="#unanswered" role="tab"
+                    <li className="nav-item active">
+                        <a className="nav-link" id="home-tab" data-toggle="tab" href="#unanswered" role="tab"
                            aria-controls="home" aria-selected="true">Unanswered</a>
                     </li>
                     <li className="nav-item">
@@ -19,8 +18,7 @@ class Home extends Component {
                     </li>
                 </ul>
                 <div className="tab-content" id="myTabContent">
-                    <div className="tab-pane fade show active" id="unanswered" role="tabpanel"
-                         aria-labelledby="home-tab">
+                    <div className="tab-pane fade in active" id="unanswered">
                         <ul className='list-group'>
                             {this.props.unAnsweredIds.map(id => (
                                 <li key={id} className='list-group-item'>
@@ -29,7 +27,7 @@ class Home extends Component {
                             ))}
                         </ul>
                     </div>
-                    <div className="tab-pane fade" id="answered" role="tabpanel" aria-labelledby="profile-tab">
+                    <div className="tab-pane fade" id="answered">
                         <ul className='list-group'>
                             {this.props.answeredIds.map(id => (
                                 <li key={id} className='list-group-item'>

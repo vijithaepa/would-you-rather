@@ -13,22 +13,35 @@ class QuestionSummary extends Component {
     render() {
         const {question, author} = this.props
         return (
-            <div className='media'>
-                <img
-                    src={author.avatarURL}
-                    alt={`Avatar of ${author.avatarURL}`}
-                    className='avatar'/>
-                <div className='media-body'>
-                    <h3 className='mt-3'>{author.name}</h3>
-                    <div className='question-header'> Would you rather</div>
-                    <div className='question-option'>{question.optionOne.text.substring(0, 20)}...
-                        OR {question.optionTwo.text.substring(0, 20)}...
+            <div className="panel panel-default">
+                <div className="panel-heading">{author.name} asks:</div>
+                <div className="panel-body">
+                    <div className='media row'>
+
+                            <div className="row">
+                                <div className="col-sm-3">
+                                    <img
+                                        src={author.avatarURL}
+                                        alt={`Avatar of ${author.avatarURL}`}
+                                        className='img-circle avatar'/>
+                                </div>
+                                <div className="col-sm-9 left-side-line question-body">
+                                    <p className='question'> Would you rather</p>
+                                    <p className='question-option'>{question.optionOne.text.substring(0, 20)}...
+                                        OR {question.optionTwo.text.substring(0, 20)}...
+                                    </p>
+                                    <button className='btn-view-poll' onClick={(e) => this.handleSubmit(e, question.id)}>
+                                        View Poll
+                                    </button>
+                                </div>
+
+                            </div>
+
                     </div>
-                    <button className='btn-view-poll' onClick={(e) => this.handleSubmit(e, question.id)}>
-                        View Poll
-                    </button>
                 </div>
             </div>
+
+
         )
     }
 }

@@ -7,9 +7,13 @@ class Nav extends Component{
     render() {
         const {user} = this.props
         return (
-            <nav className='navbar navbar-expand-lg navbar-light bg-light mx-auto  mb-4'>
-                <div className='collapse navbar-collapse'>
-                    <ul className='navbar-nav mr-auto'>
+
+            <nav className="navbar navbar-default">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                        <NavLink to='/' className="navbar-brand" href="#">Would You Rather?</NavLink>
+                    </div>
+                    <ul className="nav navbar-nav">
                         <li className='nav-item'>
                             <NavLink to='/' exact className='nav-link ml-4 mr-4'>
                                 Home
@@ -26,20 +30,16 @@ class Nav extends Component{
                             </NavLink>
                         </li>
                     </ul>
-                    <ul className='navbar-nav'>
-                        <li className='nav-item'>
-                        <span className='nav-link ml-4 mr-4'>
-                            Hello, { user && user.name }
-                        </span>
-                        </li>
-                        <li className='nav-item'>
-                            <NavLink to='/login' className='nav-link ml-4 mr-4'>
-                                Logout
-                            </NavLink>
-                        </li>
+
+                    <ul className="nav navbar-nav navbar-right">
+                        <li><a href="#"><span className="glyphicon glyphicon-user"></span> Hello, { user && user.name }</a></li>
+                        <li><NavLink to='/login' className='nav-link ml-4 mr-4'><span className="glyphicon glyphicon-log-in"></span> Login</NavLink></li>
                     </ul>
+
                 </div>
             </nav>
+
+
         )
     }
 }

@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 class Result extends Component {
 
     render() {
-        const {yourVote, authedUser, question, author} = this.props
+        const {yourVote, question, author} = this.props
         const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length
         const opOneVotes = question.optionOne.votes.length
         const opTwoVotes = question.optionTwo.votes.length

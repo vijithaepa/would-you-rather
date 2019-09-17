@@ -20,6 +20,9 @@ class Login extends Component {
         e.preventDefault()
         const {dispatch} = this.props
         dispatch(setAuthedUser(this.state.userId))
+
+        // Redirect to Question Page
+        this.props.history.push('/') // When rendered by react-router
     }
 
     render() {
