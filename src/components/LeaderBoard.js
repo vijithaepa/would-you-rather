@@ -7,7 +7,7 @@ class ClassLeaderBoard extends Component {
     render() {
         return (
             <div className='container'>
-                <ul>
+                <ul className='leaderboard'>
                 {this.props.userIds.map(userId => (
                     <li key={userId}><Score id={userId} /></li>
                 ))}

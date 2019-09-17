@@ -17,26 +17,23 @@ class QuestionSummary extends Component {
                 <div className="panel-heading">{author.name} asks:</div>
                 <div className="panel-body">
                     <div className='media row'>
-
-                            <div className="row">
-                                <div className="col-sm-3">
-                                    <img
-                                        src={author.avatarURL}
-                                        alt={`Avatar of ${author.avatarURL}`}
-                                        className='img-circle avatar'/>
-                                </div>
-                                <div className="col-sm-9 left-side-line question-body">
-                                    <p className='question'> Would you rather</p>
-                                    <p className='question-option'>{question.optionOne.text.substring(0, 20)}...
-                                        OR {question.optionTwo.text.substring(0, 20)}...
-                                    </p>
-                                    <button className='btn-view-poll' onClick={(e) => this.handleSubmit(e, question.id)}>
-                                        View Poll
-                                    </button>
-                                </div>
-
+                        <div className="row">
+                            <div className="col-sm-3">
+                                <img
+                                    src={author.avatarURL}
+                                    alt={`Avatar of ${author.avatarURL}`}
+                                    className='img-circle avatar'/>
                             </div>
-
+                            <div className="col-sm-9 left-side-line question-body">
+                                <p className='question'> Would you rather</p>
+                                <p className='question-option'>{question.optionOne.text.substring(0, 20)}...
+                                    OR {question.optionTwo.text.substring(0, 20)}...
+                                </p>
+                                <button className='btn-view-poll' onClick={(e) => this.handleSubmit(e, question.id)}>
+                                    View Poll
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

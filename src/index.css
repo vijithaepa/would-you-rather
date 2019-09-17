@@ -1,194 +1,201 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  color: #252525;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: #252525;
 }
 
 a {
-  text-decoration: none;
-  color: #252525;
+    text-decoration: none;
+    color: #252525;
 }
 
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 10px;
-  width: 70%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+    width: 70%;
+}
+
+button[disabled] {
+    background-color: #eee;
+    color: #ccc;
 }
 
 .btn {
-  text-transform: uppercase;
-  margin: 35px auto;
-  padding: 10px;
-  border: 1px solid rgba(0,0,0,.29);
-  cursor: pointer;
-  background: #fff;
-  font-size: 16px;
-  width: 250px;
-  position: relative;
+    text-transform: uppercase;
+    margin: 35px auto;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, .29);
+    cursor: pointer;
+    background: #fff;
+    font-size: 16px;
+    width: 250px;
+    position: relative;
 }
 
 .btn:hover {
-  border-color: rgba(0,0,0,.5);
-  text-decoration: none;
+    border-color: rgba(0, 0, 0, .5);
+    text-decoration: none;
 }
 
 .btn:focus {
-  outline: 0;
-  font-weight: 700;
-  border-width: 2px;
+    outline: 0;
+    font-weight: 700;
+    border-width: 2px;
 }
 
 .center {
-  text-align: center;
+    text-align: center;
 }
 
 .active {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 a.nav-link.ml-4.mr-4 {
-  width: 100%;
+    width: 100%;
 }
 
 a.nav-link.ml-4.mr-4.active {
-  background-color: #32a1a8;
-  color: #fff;
+    background-color: #32a1a8;
+    color: #fff;
 }
 
 .navbar .nav-item.active {
-  background-color: #e5e7e8;
-  color: #258745;
+    background-color: #e5e7e8;
+    color: #258745;
 }
 
 .nav.nav-tabs .nav-link.active {
-  background-color: #e5e7e8;
-  color: #258745;
+    background-color: #e5e7e8;
+    color: #258745;
 }
 
-.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:focus, .nav-tabs.nav-justified>.active>a:hover{
-  background-color: #e5e7e8;
-  color: #258745;
+.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:focus, .nav-tabs.nav-justified > .active > a:hover {
+    background-color: #e5e7e8;
+    color: #258745;
 }
 
 hr {
-  display: block;
-  margin-before: 0.5em;
-  margin-after: 0.5em;
-  margin-start: auto;
-  margin-end: auto;
-  overflow: hidden;
-  border-style: inset;
-  border-width: 1px;
-  height: 1px;
-  background-color:lightseagreen;
+    display: block;
+    margin-before: 0.5em;
+    margin-after: 0.5em;
+    margin-start: auto;
+    margin-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+    height: 1px;
+    background-color: lightseagreen;
 }
 
 .avatar {
-  height: 130px;
+    height: 130px;
 }
+
 .rather-text {
-  height: 30px;
-  padding: 10px 0;
+    height: 30px;
+    padding: 10px 0;
 }
 
 .result {
-  height: 150px;
-  padding: 22px;
-  border-style: groove;
-  border-radius: 8px;
-  margin: 5px 0;
+    height: 150px;
+    padding: 22px;
+    border-style: groove;
+    border-radius: 8px;
+    margin: 5px 0;
 }
 
 .result.voted {
-  background: #c3dcdb;
+    background: #c3dcdb;
 }
 
 button.btn.btn-primary {
-  background-color: #e5e7e8;
-  color: #258745;
+    background-color: #e5e7e8;
+    color: #258745;
 }
 
 .new-question-container {
-  margin: 70px 200px;
+    margin: 70px 200px;
 }
 
 .btn-view-poll {
-  width: 100%;
-  background-color: #e5e7e8;
-  color: #258745;
+    width: 100%;
+    background-color: #e5e7e8;
+    color: #258745;
 }
 
 .media img {
-  margin: 10px 10px;
-  background: #b9ccb8;
-  padding-top: 5px;
+    margin: 10px 10px;
+    background: #b9ccb8;
+    padding-top: 5px;
 }
 
 .score-list {
-  list-style-type: none;
+    list-style-type: none;
 
 }
 
 .score-heading {
-  border: 1px groove;
-  height: 50px;
-  padding: 15px 28px
+    border: 1px groove;
+    height: 50px;
+    padding: 15px 28px
 }
 
 .score-value {
-  width: 100%;
-  border: 1px groove;
-  height: 80px;
-  padding: 27px 5px 0px 5px;
+    width: 100%;
+    border: 1px groove;
+    height: 80px;
+    padding: 27px 5px 0px 5px;
 }
 
 .score-value .value {
-  border: 1px groove;
-  padding: 25px;
-  border-radius: 30px;
-  background-color: #39b9c0;
+    border: 1px groove;
+    padding: 25px;
+    border-radius: 30px;
+    background-color: #39b9c0;
 }
 
 
 .well-bg-white {
-  background-color: #fff;
-  box-shadow: 1px -1px 5px rgba(0,0,0,.5);
+    background-color: #fff;
+    box-shadow: 1px -1px 5px rgba(0, 0, 0, .5);
 }
 
 .score_bubble {
-  display: block;
-  height: 50px;
-  width: 50px;
-  margin: 0px auto;
-  text-align: center;
-  line-height: 50px;
-  font-weight: 900;
-  color: #fff;
-  border-radius: 100px;
-  background-color: #32a1a8;
-  font-size: 19px;
-  box-shadow: 0px 0px 5px rgba(50, 161, 168, 0.6);
+    display: block;
+    height: 50px;
+    width: 50px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 900;
+    color: #fff;
+    border-radius: 100px;
+    background-color: #32a1a8;
+    font-size: 19px;
+    box-shadow: 0px 0px 5px rgba(50, 161, 168, 0.6);
 }
 
 .side-line {
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 .left-side-line {
-  border-left: 1px solid #ccc;
+    border-left: 1px solid #ccc;
 }
 
 .bottom-side-line {
-  border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 .question-header {
-  font-size: larger;
-  font-weight: bold;
+    font-size: larger;
+    font-weight: bold;
 }
+
 .question {
 
 }
@@ -198,6 +205,37 @@ button.btn.btn-primary {
 }
 
 .question-body {
-  margin-top: 10px;
-  padding: 20px;
+    margin-top: 10px;
+    padding: 20px;
+}
+
+.leaderboard li {
+    list-style: none;
+}
+
+.ribbon .well:before {
+    content: " ";
+    position: absolute;
+    background-color: #ccc;
+    color: #fff;
+    top: 11px;
+    padding: 2px 15px;
+    text-transform: uppercase;
+    transform: rotate(-45deg);
+    font-size: 10px;
+    left: -17px;
+}
+
+.ribbon .well {
+    overflow: hidden;
+}
+
+.ribbon.winner .well:before {
+    content: "Winner";
+    background-color: orange;
+}
+
+.ribbon.pass .well:before {
+    content: "Pass";
+    background-color: green;
 }

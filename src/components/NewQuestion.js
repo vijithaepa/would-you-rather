@@ -47,7 +47,8 @@ class NewQuestion extends Component {
                         <input type="text" className="form-control" id="optionTwo"
                                placeholder="Enter Option Two Text Here" onChange={this.updateOptionTwo}/>
                     </div>
-                    <button type="submit" className="btn btn-primary" >Submit</button>
+                    <button disabled={this.state.optionOneText === '' || this.state.optionTwoText === ''}
+                            type="submit" className="btn btn-primary" >Submit</button>
                 </form>
             </div>
         )

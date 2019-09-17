@@ -33,36 +33,40 @@ class Poll extends Component {
     }
 
     render() {
-        const {question} = this.props
+        const {question, author} = this.props
         const {id, avatar} = question
         return (
-            <div className='media'>
-                <img
-                    src={avatar}
-                    alt={`Avatar of ${avatar}`}
-                    className='avatar mr-3'/>
-                <div className='media-body'>
-                    <h5 className='mt-0'>{question.name}</h5>
-                    <div className='question-header'> Would you rather</div>
+            <div className="container panel panel-default">
+                <div className="panel-heading">{author.name} asks:</div>
+                <div className="panel-body">
+                    <div className='media row'>
+                        <div className="row">
+                            <div className="col-sm-3">
+                                <img
+                                    src={avatar}
+                                    alt={`Avatar of ${avatar}`}
+                                    className='img-circle avatar'/>
+                            </div>
+                            <div className="col-sm-9 left-side-line question-body">
+                                <p className='question'> Would you rather...</p>
+                                {/*<div className='question-header'> Would you rather</div>*/}
 
-                    <div className="custom-control custom-radio">
-                        <input type="radio" className="custom-control-input" id="defaultGroupExample1"
-                               name="groupOfDefaultRadios" value='optionOne' onChange={this.handleChange}/>
-                        <label className="custom-control-label"
-                               htmlFor="defaultGroupExample1">{question.optionOne.text}</label>
+                                <div className="radio">
+                                    <label><input type="radio" name="optradio" onChange={this.handleChange} />{question.optionOne.text}</label>
+                                </div>
+                                <div className="radio">
+                                    <label><input type="radio" name="optradio" onChange={this.handleChange} />{question.optionTwo.text}</label>
+                                </div>
+
+                                <button disabled={this.state.answer === ''} onClick={(e) => this.submitPoll(e, id)}>
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
                     </div>
-
-                    <div className="custom-control custom-radio">
-                        <input type="radio" className="custom-control-input" id="defaultGroupExample2"
-                               name="groupOfDefaultRadios" value='optionTwo' onChange={this.handleChange}/>
-                        <label className="custom-control-label"
-                               htmlFor="defaultGroupExample2">{question.optionTwo.text}</label>
-                    </div>
-
-                    <button className='' onClick={(e) => this.submitPoll(e, id)}>
-                        Submit
-                    </button>
                 </div>
+
+
             </div>
         )
     }
@@ -72,6 +76,7 @@ function mapStateToProps({questions, users, authedUser}, props) {
     const {id} = props.match.params
     const question = questions[id]
     return {
+        author: users[question.author],
         authedUser,
         question: question
             ? formatQuestion(question, users[question.author], authedUser)

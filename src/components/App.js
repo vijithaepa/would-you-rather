@@ -40,7 +40,6 @@ class App extends Component {
                                     {/*<Route path='/score' exact render={() => <Score id='sarahedo'/>} />*/}
                                 </div>
                         }
-
                     </div>
                 </Fragment>
             </Router>
@@ -49,7 +48,6 @@ class App extends Component {
 }
 
 function mapStateToProps({authedUser, loadingBar}) {
-    console.log('Loading ', loadingBar.default, authedUser)
     return {
         authedUser,
         loading: loadingBar.default

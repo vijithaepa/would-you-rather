@@ -26,14 +26,15 @@ class Login extends Component {
     }
 
     render() {
+        console.log('User id ', this.state.userId, this.state.userId === '', this.state.userId === null)
         return (
             <form>
                 <div className="form-group">
                     <label htmlFor="userList">Sign in</label>
                     <select className="form-control" id="userList" onChange={this.handleChange} defaultValue=''>
                         <option value=''>Select User</option>
-                        {this.props.userIds.map(userId => <option
-                            value={userId}>{this.props.users[userId].name}</option>)}
+                        {this.props.userIds.map(userId =>
+                            <option key={userId} value={userId}>{this.props.users[userId].name}</option>)}
                     </select>
                 </div>
                 <button disabled={this.state.userId === ''} onClick={(e) => this.submitLogin(e)}>
