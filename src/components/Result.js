@@ -14,34 +14,46 @@ class Result extends Component {
         const opTwoPercent = Math.round((opTwoVotes / totalVotes) * 100 * 100) / 100
 
         return (
-            <div className='media'>
-                <div><h3> Asked by <span>{author.name}</span></h3></div>
-                <img
-                    src={author.avatarURL}
-                    alt={`Avatar of ${author.avatarURL}`}
-                    className='avatar mr-3'/>
-                <div className='media-body'>
-                    <div>Results:</div>
-                    <div className={'result' + (yourVote === 'optionOne' ? ' voted' : '')}>
-                        <span className='rather-text'>Would you rather {question.optionOne.text}</span>
-                        <div className="progress">
-                            <div className="progress-bar" role="progressbar" aria-valuenow='0' aria-valuemin="0"
-                                 aria-valuemax="100" style={{"width": `${opOnePercent}%`}}>{opOnePercent}%
+            <div className="panel panel-default">
+                <div className="panel-heading">Asked by {author.name}:</div>
+                <div className="panel-body">
+                    <div className='media row'>
+                        <div className="row">
+                            <div className="col-sm-3">
+                                <img
+                                    src={author.avatarURL}
+                                    alt={`Avatar of ${author.avatarURL}`}
+                                    className='img-circle avatar'/>
+                            </div>
+                            <div className="col-sm-9 left-side-line question-body">
+                                <p className='question'> Results:</p>
+                                <div className={'result' + (yourVote === 'optionOne' ? ' voted' : '')}>
+                                    <span className='rather-text'>Would you rather {question.optionOne.text}</span>
+                                    <div className="progress">
+                                        <div className="progress-bar" role="progressbar" aria-valuenow='0'
+                                             aria-valuemin="0"
+                                             aria-valuemax="100" style={{"width": `${opOnePercent}%`}}>{opOnePercent}%
+                                        </div>
+                                    </div>
+                                    <span>{opOneVotes} out of {totalVotes} votes</span>
+                                </div>
+                                <div className={'result' + (yourVote === 'optionTwo' ? ' voted' : '')}>
+                                    <span className='rather-text'>Would you rather {question.optionTwo.text}</span>
+                                    <div className="progress">
+                                        <div className="progress-bar" role="progressbar" aria-valuenow="0"
+                                             aria-valuemin="0"
+                                             aria-valuemax="100" style={{"width": `${opTwoPercent}%`}}>{opTwoPercent}%
+                                        </div>
+                                    </div>
+                                    <span>{opTwoVotes} out of {totalVotes} votes</span>
+                                </div>
                             </div>
                         </div>
-                        <span>{opOneVotes} out of {totalVotes} votes</span>
-                    </div>
-                    <div className={'result' + (yourVote === 'optionTwo' ? ' voted' : '')}>
-                        <span className='rather-text'>Would you rather {question.optionTwo.text}</span>
-                        <div className="progress">
-                            <div className="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                 aria-valuemax="100" style={{"width": `${opTwoPercent}%`}}>{opTwoPercent}%
-                            </div>
-                        </div>
-                        <span>{opTwoVotes} out of {totalVotes} votes</span>
                     </div>
                 </div>
             </div>
+
+
         )
     }
 }

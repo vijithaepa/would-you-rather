@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
 
@@ -26,7 +27,6 @@ class Login extends Component {
     }
 
     render() {
-        console.log('User id ', this.state.userId, this.state.userId === '', this.state.userId === null)
         return (
             <form>
                 <div className="form-group">
@@ -52,4 +52,4 @@ function mapStateToProps({users}) {
     }
 }
 
-export default connect(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login))

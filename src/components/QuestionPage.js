@@ -4,17 +4,19 @@ import { formatQuestion } from "../utils/helpers";
 import { withRouter } from "react-router-dom";
 import Poll from "./Poll";
 import Result from "./Result";
+import Login from "./Login";
 
 class QuestionPage extends Component {
 
     render() {
-        const {answered} = this.props
+        const {answered, authedUser} = this.props
         return (
             <div>
-            { answered && answered === true
-                ? <Result />
-                : <Poll />
-            }
+                {authedUser === null && <Login/>}
+                {answered && answered === true
+                    ? <Result/>
+                    : <Poll/>
+                }
             </div>
         )
     }
@@ -25,12 +27,15 @@ class QuestionPage extends Component {
 function mapStateToProps({questions, users, authedUser}, props) {
     const {id} = props.match.params     // Reading from browser URL params 'id'
     const question = questions[id]
-    return {
-        authedUser,
-        answered: !!users[authedUser].answers[id],
-        question: question
-            ? formatQuestion(question, users[question.author], authedUser)
-            : null
+    console.log("Page ", authedUser, users[authedUser])
+    if (authedUser !== null) {
+        return {
+            authedUser,
+            answered: !!users[authedUser].answers[id],
+            question: question
+                ? formatQuestion(question, users[question.author], authedUser)
+                : null
+        }
     }
 }
 

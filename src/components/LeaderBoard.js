@@ -9,7 +9,7 @@ class ClassLeaderBoard extends Component {
             <div className='container'>
                 <ul className='leaderboard'>
                 {this.props.userIds.map(userId => (
-                    <li key={userId}><Score id={userId} /></li>
+                    <li className='ribbon winner' key={userId}><Score id={userId} /></li>
                 ))}
                 </ul>
             </div>
@@ -17,7 +17,7 @@ class ClassLeaderBoard extends Component {
     }
 }
 
-function mapStateToProps({questions, users, authedUser}, {id}) {
+function mapStateToProps({users}) {
     return {
         userIds: Object.keys(users)
             .sort((a, b) => {

@@ -6,7 +6,7 @@ class Score extends Component {
     render() {
         const {user, answerCount, questionCount} = this.props
         return (
-            <div className='media row ribbon winner'>
+            <div className='media row'>
                 <div className="well col-sm-12 well-bg-white">
                     <div className="row">
                         <div className="col-sm-3">
@@ -18,9 +18,9 @@ class Score extends Component {
                         <div className="col-sm-6 side-line">
 
                             <h3>{user.name}</h3>
-                            <div>
-                                <p className='score-text col-10'>Answered questions<span>5</span></p>
-                                <p className='score-text col-10'>Asked questions</p>
+                            <div className='row'>
+                                <p><span className='score-text col-sm-10'>Answered questions</span><span className='col-sm-2'>{answerCount}</span></p>
+                                <p><span className='score-text col-sm-10'>Asked questions</span><span className='col-sm-2'>{questionCount}</span></p>
                             </div>
 
                         </div>

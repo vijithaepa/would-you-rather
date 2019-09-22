@@ -10,10 +10,9 @@ class Poll extends Component {
         answer: '',
     }
 
-    handleChange = (e) => {
-        const answer = e.target.value
+    handleChange = (e, option) => {
         this.setState(() => ({
-            answer
+            answer:option
         }))
     }
 
@@ -52,10 +51,10 @@ class Poll extends Component {
                                 {/*<div className='question-header'> Would you rather</div>*/}
 
                                 <div className="radio">
-                                    <label><input type="radio" name="optradio" onChange={this.handleChange} />{question.optionOne.text}</label>
+                                    <label><input type="radio" name="optradio" onChange={e =>this.handleChange(e, 'optionOne')} />{question.optionOne.text}</label>
                                 </div>
                                 <div className="radio">
-                                    <label><input type="radio" name="optradio" onChange={this.handleChange} />{question.optionTwo.text}</label>
+                                    <label><input type="radio" name="optradio" onChange={e=>this.handleChange(e, 'optionTwo')} />{question.optionTwo.text}</label>
                                 </div>
 
                                 <button disabled={this.state.answer === ''} onClick={(e) => this.submitPoll(e, id)}>
