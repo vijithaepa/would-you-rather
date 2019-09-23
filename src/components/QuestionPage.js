@@ -9,7 +9,7 @@ import Login from "./Login";
 class QuestionPage extends Component {
 
     render() {
-        const {answered, authedUser} = this.props
+        const {answered, authedUser} = this.props;
         return (
             <div>
                 {authedUser === null && <Login/>}
@@ -25,8 +25,8 @@ class QuestionPage extends Component {
 // passing state as 1st parameter
 // Passing parameter to store is the 2nd parameter
 function mapStateToProps({questions, users, authedUser}, props) {
-    const {id} = props.match.params     // Reading from browser URL params 'id'
-    const question = questions[id]
+    const {id} = props.match.params;     // Reading from browser URL params 'id'
+    const question = questions[id];
     if (authedUser !== null) {
         return {
             authedUser,

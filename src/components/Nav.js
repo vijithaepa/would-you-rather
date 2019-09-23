@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
-import { withRouter } from "react-router-dom";
-import Login from "./Login";
 
 class Nav extends Component {
 
     submitLogout = (e) => {
-        e.preventDefault()
-        const {dispatch} = this.props
-        dispatch(setAuthedUser(null))
+        console.log('removing authed user');
+        e.preventDefault();
+        const {dispatch} = this.props;
+        dispatch(setAuthedUser(null));
 
         // Redirect to Question Page
         this.props.history.push('/login') // When rendered by react-router
-    }
+    };
 
     render() {
-        const {user} = this.props
-        const isValidUser = user !== undefined && user.name !== null
+        const {user} = this.props;
+        const isValidUser = user !== undefined && user.name !== null;
 
         return (
             <nav className="navbar navbar-default">
@@ -31,7 +30,7 @@ class Nav extends Component {
     }
 }
 
-function getEnableNav (user, submitLogout) {
+function getEnableNav(user, submitLogout) {
     return <div className="container-fluid">
         <div className="navbar-header">
             <span className="navbar-brand">Would You Rather?</span>
@@ -94,6 +93,7 @@ function getDisableNav() {
 }
 
 function mapStateToProps({users, authedUser}) {
+    console.log('From store ', authedUser);
     return {
         user: users[authedUser],
     }

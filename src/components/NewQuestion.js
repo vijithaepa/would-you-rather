@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { handleSaveQuestion } from "../actions/shared";
 
@@ -7,30 +7,30 @@ class NewQuestion extends Component {
     state = {
         optionOneText: '',
         optionTwoText: '',
-    }
+    };
 
     updateOptionOne = (e) => {
-        const optionOneText = e.target.value
+        const optionOneText = e.target.value;
         this.setState(() => ({
             optionOneText
         }))
-    }
+    };
 
     updateOptionTwo = (e) => {
-        const optionTwoText = e.target.value
+        const optionTwoText = e.target.value;
         this.setState(() => ({
             optionTwoText
         }))
-    }
+    };
     handleSubmit = (e) => {
-        e.preventDefault()
-        const {optionOneText, optionTwoText} = this.state
-        const {dispatch} = this.props
-        dispatch(handleSaveQuestion({optionOneText, optionTwoText}))
+        e.preventDefault();
+        const {optionOneText, optionTwoText} = this.state;
+        const {dispatch} = this.props;
+        dispatch(handleSaveQuestion({optionOneText, optionTwoText}));
 
         // Redirect to Question Page
         this.props.history.push('/') // When rendered by react-router
-    }
+    };
 
     render() {
         return (
@@ -48,13 +48,13 @@ class NewQuestion extends Component {
                                placeholder="Enter Option Two Text Here" onChange={this.updateOptionTwo}/>
                     </div>
                     <button disabled={this.state.optionOneText === '' || this.state.optionTwoText === ''}
-                            type="submit" className="btn btn-primary" >Submit</button>
+                            type="submit" className="btn btn-primary">Submit
+                    </button>
                 </form>
             </div>
         )
     }
 }
-
 
 
 export default connect()(NewQuestion)

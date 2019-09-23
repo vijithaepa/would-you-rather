@@ -8,32 +8,32 @@ class Poll extends Component {
 
     state = {
         answer: '',
-    }
+    };
 
     handleChange = (e, option) => {
         this.setState(() => ({
-            answer:option
+            answer: option
         }))
-    }
+    };
 
     submitPoll = (e, qid) => {
-        e.preventDefault()
-        const {dispatch, authedUser} = this.props
-        const {answer} = this.state
+        e.preventDefault();
+        const {dispatch, authedUser} = this.props;
+        const {answer} = this.state;
 
         dispatch(handleSaveAnswer({
             authedUser,
             qid,
             answer,
-        }))
+        }));
 
         // Redirect to Question Page
         this.props.history.push(`/questions/${qid}`) // When rendered by react-router
-    }
+    };
 
     render() {
-        const {question, author} = this.props
-        const {id, avatar} = question
+        const {question, author} = this.props;
+        const {id, avatar} = question;
         return (
             <div className="container panel panel-default">
                 <div className="panel-heading">{author.name} asks:</div>
@@ -51,10 +51,14 @@ class Poll extends Component {
                                 {/*<div className='question-header'> Would you rather</div>*/}
 
                                 <div className="radio">
-                                    <label><input type="radio" name="optradio" onChange={e =>this.handleChange(e, 'optionOne')} />{question.optionOne.text}</label>
+                                    <label><input type="radio" name="optradio"
+                                                  onChange={e => this.handleChange(e, 'optionOne')}/>{question.optionOne.text}
+                                    </label>
                                 </div>
                                 <div className="radio">
-                                    <label><input type="radio" name="optradio" onChange={e=>this.handleChange(e, 'optionTwo')} />{question.optionTwo.text}</label>
+                                    <label><input type="radio" name="optradio"
+                                                  onChange={e => this.handleChange(e, 'optionTwo')}/>{question.optionTwo.text}
+                                    </label>
                                 </div>
 
                                 <button disabled={this.state.answer === ''} onClick={(e) => this.submitPoll(e, id)}>
@@ -72,8 +76,8 @@ class Poll extends Component {
 }
 
 function mapStateToProps({questions, users, authedUser}, props) {
-    const {id} = props.match.params
-    const question = questions[id]
+    const {id} = props.match.params;
+    const question = questions[id];
     return {
         author: users[question.author],
         authedUser,

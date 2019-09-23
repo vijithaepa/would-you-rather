@@ -14,12 +14,13 @@ class App extends Component {
 
     componentDidMount() {
         // if(this.props.authedUser !== null) {
-            this.props.dispatch(handleInitialData())
+        this.props.dispatch(handleInitialData())
         // }
     }
 
 
     render() {
+        console.log('THe page ', this.props.authedUser);
         return (
             <Router>
                 <Fragment>
@@ -28,10 +29,7 @@ class App extends Component {
                         <Nav/>
 
                         {this.props.authedUser === null
-                            ? <div>
-                                <Route path='/login' exact component={Login}/>
-                                {/*<Route path='/score' exact render={() => <Score id='sarahedo'/>} />*/}
-                            </div>
+                            ? <Login/>
                             : (
                                 this.props.loading !== 0        // And authedUser is not empty
                                     ? null

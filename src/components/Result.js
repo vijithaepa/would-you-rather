@@ -6,12 +6,12 @@ import { withRouter } from "react-router-dom";
 class Result extends Component {
 
     render() {
-        const {yourVote, question, author} = this.props
-        const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length
-        const opOneVotes = question.optionOne.votes.length
-        const opTwoVotes = question.optionTwo.votes.length
-        const opOnePercent = Math.round((opOneVotes / totalVotes) * 100 * 100) / 100
-        const opTwoPercent = Math.round((opTwoVotes / totalVotes) * 100 * 100) / 100
+        const {yourVote, question, author} = this.props;
+        const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length;
+        const opOneVotes = question.optionOne.votes.length;
+        const opTwoVotes = question.optionTwo.votes.length;
+        const opOnePercent = Math.round((opOneVotes / totalVotes) * 100 * 100) / 100;
+        const opTwoPercent = Math.round((opTwoVotes / totalVotes) * 100 * 100) / 100;
 
         return (
             <div className="panel panel-default">
@@ -26,7 +26,7 @@ class Result extends Component {
                                     className='img-circle avatar'/>
                             </div>
                             <div className="col-sm-9 left-side-line question-body">
-                                <p className='question'> Results:</p>
+                                <h3> Results:</h3>
                                 <div className={'result' + (yourVote === 'optionOne' ? ' voted' : '')}>
                                     <span className='rather-text'>Would you rather {question.optionOne.text}</span>
                                     <div className="progress">
@@ -59,9 +59,9 @@ class Result extends Component {
 }
 
 function mapStateToProps({questions, users, authedUser}, props) {
-    const {id} = props.match.params
-    const question = questions[id]
-    const answerId = Object.keys(users[authedUser].answers).filter((a) => (a === id))
+    const {id} = props.match.params;
+    const question = questions[id];
+    const answerId = Object.keys(users[authedUser].answers).filter((a) => (a === id));
 
     return {
         yourVote: users[authedUser].answers[answerId[0]],

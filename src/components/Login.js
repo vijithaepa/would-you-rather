@@ -7,24 +7,24 @@ class Login extends Component {
 
     state = {
         userId: ''
-    }
+    };
 
     handleChange = (e) => {
-        const userId = e.target.value
+        const userId = e.target.value;
         this.setState(() => ({
             userId
         }))
 
-    }
+    };
 
     submitLogin = (e) => {
-        e.preventDefault()
-        const {dispatch} = this.props
-        dispatch(setAuthedUser(this.state.userId))
+        e.preventDefault();
+        const {dispatch} = this.props;
+        dispatch(setAuthedUser(this.state.userId));
 
         // Redirect to Question Page
         this.props.history.push('/') // When rendered by react-router
-    }
+    };
 
     render() {
         return (
@@ -41,19 +41,19 @@ class Login extends Component {
                             className='avatar'/>
                     </div>
                     <form>
-                    <div className="form-group text-center">
-                        <label htmlFor="userList" className='lbl-signin'>Sign in</label>
-                        <select className="form-control" id="userList" onChange={this.handleChange} defaultValue=''>
-                            <option value=''>Select User</option>
-                            {this.props.userIds.map(userId =>
-                                <option key={userId} value={userId}>{this.props.users[userId].name}</option>)}
-                        </select>
-                    </div>
-                    <button disabled={this.state.userId === ''} className='btn-login'
-                            onClick={(e) => this.submitLogin(e)}>
-                        Submit
-                    </button>
-                </form>
+                        <div className="form-group text-center">
+                            <label htmlFor="userList" className='lbl-signin'>Sign in</label>
+                            <select className="form-control" id="userList" onChange={this.handleChange} defaultValue=''>
+                                <option value=''>Select User</option>
+                                {this.props.userIds.map(userId =>
+                                    <option key={userId} value={userId}>{this.props.users[userId].name}</option>)}
+                            </select>
+                        </div>
+                        <button disabled={this.state.userId === ''} className='btn-login'
+                                onClick={(e) => this.submitLogin(e)}>
+                            Submit
+                        </button>
+                    </form>
                 </div>
             </div>
 

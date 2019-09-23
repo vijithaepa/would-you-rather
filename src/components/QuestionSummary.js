@@ -5,13 +5,13 @@ import { withRouter } from "react-router-dom";
 class QuestionSummary extends Component {
 
     handleSubmit = (e, qid) => {
-        e.preventDefault()
+        e.preventDefault();
         // Redirect to Question Page
         this.props.history.push(`/questions/${qid}`) // When rendered by react-router
-    }
+    };
 
     render() {
-        const {question, author} = this.props
+        const {question, author} = this.props;
         return (
             <div className="panel panel-default">
                 <div className="panel-heading">{author.name} asks:</div>

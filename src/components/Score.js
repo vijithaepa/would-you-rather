@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class Score extends Component {
 
     render() {
-        const {user, answerCount, questionCount} = this.props
+        const {user, answerCount, questionCount} = this.props;
         return (
             <div className='media row'>
                 <div className="well col-sm-12 well-bg-white">
@@ -19,8 +19,10 @@ class Score extends Component {
 
                             <h3>{user.name}</h3>
                             <div className='row'>
-                                <p><span className='score-text col-sm-10'>Answered questions</span><span className='col-sm-2'>{answerCount}</span></p>
-                                <p><span className='score-text col-sm-10'>Asked questions</span><span className='col-sm-2'>{questionCount}</span></p>
+                                <p><span className='score-text col-sm-10'>Answered questions</span><span
+                                    className='col-sm-2'>{answerCount}</span></p>
+                                <p><span className='score-text col-sm-10'>Asked questions</span><span
+                                    className='col-sm-2'>{questionCount}</span></p>
                             </div>
 
                         </div>
