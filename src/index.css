@@ -108,7 +108,24 @@ hr {
 }
 
 .result.voted {
-    background: #c3dcdb;
+    background: #d0f7ee;
+}
+
+.result.voted:after {
+    content: " ";
+    position: absolute;
+    background-color: #ccc;
+    color: #fff;
+    top: 48px;
+    padding: 2px 15px;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    font-size: 10px;
+    left: 533px;
+}
+
+.voted {
+    content: 'You voted';
 }
 
 button.btn.btn-primary {
@@ -211,17 +228,17 @@ button.btn.btn-primary {
 
 .leaderboard li:nth-child(1) .well:before {
     content: "Gold";
-    background-color: orange;
+    background-color: gold;
 }
 
 .leaderboard li:nth-child(2) .well:before{
     content: "Silver";
-    background-color: orange;
+    background-color: silver;
 }
 
 .leaderboard li:nth-child(3) .well:before{
     content: "bronze";
-    background-color: orange;
+    background-color: #83700e;
 }
 
 .ribbon .well:before {
@@ -241,4 +258,26 @@ button.btn.btn-primary {
     overflow: hidden;
 }
 
+span.nav-link.ml-4.mr-4 {
+    position: relative;
+    display: inline-block;
+    padding: 15px 15px;
+}
 
+.btn-logout {
+    border: none;
+    background: #f8f8f8;
+}
+
+.lbl-signin {
+    text-decoration: solid;
+    font-size: x-large;
+    color: #00bf70;
+    width: 100%;
+}
+
+.btn-login {
+    background: #5cd1be;
+    width: 100%;
+    color: #fff;
+}

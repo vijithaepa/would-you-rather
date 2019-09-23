@@ -28,19 +28,35 @@ class Login extends Component {
 
     render() {
         return (
-            <form>
-                <div className="form-group">
-                    <label htmlFor="userList">Sign in</label>
-                    <select className="form-control" id="userList" onChange={this.handleChange} defaultValue=''>
-                        <option value=''>Select User</option>
-                        {this.props.userIds.map(userId =>
-                            <option key={userId} value={userId}>{this.props.users[userId].name}</option>)}
-                    </select>
+            <div className="panel panel-default">
+                <div className="panel-heading text-center">
+                    <h3>Welcome to the Would You Rather App!</h3>
+                    <p>Please sign in to continue</p>
                 </div>
-                <button disabled={this.state.userId === ''} onClick={(e) => this.submitLogin(e)}>
-                    Submit
-                </button>
-            </form>
+                <div className="panel-body">
+                    <div className="text-center">
+                        <img
+                            src='/assets/react-logo.png'
+                            alt='logo'
+                            className='avatar'/>
+                    </div>
+                    <form>
+                    <div className="form-group text-center">
+                        <label htmlFor="userList" className='lbl-signin'>Sign in</label>
+                        <select className="form-control" id="userList" onChange={this.handleChange} defaultValue=''>
+                            <option value=''>Select User</option>
+                            {this.props.userIds.map(userId =>
+                                <option key={userId} value={userId}>{this.props.users[userId].name}</option>)}
+                        </select>
+                    </div>
+                    <button disabled={this.state.userId === ''} className='btn-login'
+                            onClick={(e) => this.submitLogin(e)}>
+                        Submit
+                    </button>
+                </form>
+                </div>
+            </div>
+
         )
     }
 }

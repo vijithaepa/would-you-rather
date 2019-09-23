@@ -27,7 +27,6 @@ class QuestionPage extends Component {
 function mapStateToProps({questions, users, authedUser}, props) {
     const {id} = props.match.params     // Reading from browser URL params 'id'
     const question = questions[id]
-    console.log("Page ", authedUser, users[authedUser])
     if (authedUser !== null) {
         return {
             authedUser,
