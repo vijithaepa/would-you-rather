@@ -21,7 +21,7 @@ class Score extends Component {
                             <div className='row'>
                                 <p><span className='score-text col-sm-10'>Answered questions</span><span
                                     className='col-sm-2'>{answerCount}</span></p>
-                                <p><span className='score-text col-sm-10'>Asked questions</span><span
+                                <p><span className='score-text col-sm-10'>Created questions</span><span
                                     className='col-sm-2'>{questionCount}</span></p>
                             </div>
 

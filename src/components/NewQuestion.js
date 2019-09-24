@@ -34,23 +34,24 @@ class NewQuestion extends Component {
 
     render() {
         return (
-            <div className='new-question-container'>
-                <h3>Create New Question</h3>
-                <hr/>
-                <h4>Complete the question:</h4>
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <label>Would you rather ...</label>
-                        <input type="text" className="form-control" id="optionOne"
-                               placeholder="Enter Option One Text Here" onChange={this.updateOptionOne}/>
-                        <span> ---- OR ---- </span>
-                        <input type="text" className="form-control" id="optionTwo"
-                               placeholder="Enter Option Two Text Here" onChange={this.updateOptionTwo}/>
-                    </div>
-                    <button disabled={this.state.optionOneText === '' || this.state.optionTwoText === ''}
-                            type="submit" className="btn btn-primary">Submit
-                    </button>
-                </form>
+            <div className="panel panel-default new-question-container">
+                <div className="panel-heading text-center"><h3>Create New Question</h3></div>
+                <div className="panel-body">
+                    <h4>Complete the question:</h4>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <h3>Would you rather ...</h3>
+                            <input type="text" className="form-control" id="optionOne"
+                                   placeholder="Enter Option One Text Here" onChange={this.updateOptionOne}/>
+                            <span className='text-or'> ---- OR ---- </span>
+                            <input type="text" className="form-control" id="optionTwo"
+                                   placeholder="Enter Option Two Text Here" onChange={this.updateOptionTwo}/>
+                        </div>
+                        <button disabled={this.state.optionOneText === '' || this.state.optionTwoText === ''}
+                                type="submit" className="btn-login">Submit
+                        </button>
+                    </form>
+                </div>
             </div>
         )
     }

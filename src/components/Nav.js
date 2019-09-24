@@ -6,7 +6,6 @@ import { setAuthedUser } from "../actions/authedUser";
 class Nav extends Component {
 
     submitLogout = (e) => {
-        console.log('removing authed user');
         e.preventDefault();
         const {dispatch} = this.props;
         dispatch(setAuthedUser(null));
@@ -36,17 +35,17 @@ function getEnableNav(user, submitLogout) {
             <span className="navbar-brand">Would You Rather?</span>
         </div>
         <ul className="nav navbar-nav">
-            <li className='nav-item'>
+            <li className='nav-item' key='home'>
                 <NavLink to='/' exact className='nav-link ml-4 mr-4'>
                     Home
                 </NavLink>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item' key='new'>
                 <NavLink to='/add' className='nav-link ml-4 mr-4'>
                     New Question
                 </NavLink>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item' key='leaderboard'>
                 <NavLink to='/leaderboard' className='nav-link ml-4 mr-4'>
                     Leader Board
                 </NavLink>
@@ -54,9 +53,10 @@ function getEnableNav(user, submitLogout) {
         </ul>
 
         <ul className="nav navbar-nav navbar-right">
-            <li><a href="#"><span className="glyphicon glyphicon-user"></span> Hello, {user && user.name}
-            </a></li>
-            <li><NavLink to='/login' className='nav-link ml-4 mr-4'>
+            <li key='user'><span className="glyphicon glyphicon-user"></span>
+                <span className='nav-link ml-4 mr-4'> Hello, {user && user.name}</span>
+            </li>
+            <li key='login'><NavLink to='/login' className='nav-link ml-4 mr-4'>
                 <span className="glyphicon glyphicon-log-in"></span>
                 <button onClick={(e) => submitLogout(e)} className='btn-logout'> Logout</button>
             </NavLink></li>
@@ -71,21 +71,21 @@ function getDisableNav() {
             <span className="navbar-brand">Would You Rather?</span>
         </div>
         <ul className="nav navbar-nav">
-            <li className='nav-item'>
+            <li className='nav-item' key='home'>
                 <span className='nav-link ml-4 mr-4'>Home</span>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item' key='new'>
                 <span className='nav-link ml-4 mr-4'>New Question</span>
             </li>
-            <li className='nav-item'>
+            <li className='nav-item' key='leaderboard'>
                 <span className='nav-link ml-4 mr-4'>Leader Board</span>
             </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">
-            <li><span className="glyphicon glyphicon-user"></span>
+            <li key='user'><span className="glyphicon glyphicon-user"></span>
                 <span className='nav-link ml-4 mr-4'> Hello, Please login</span>
             </li>
-            <li><NavLink to='/login' className='nav-link ml-4 mr-4 active'>
+            <li key='login'><NavLink to='/login' className='nav-link ml-4 mr-4 active'>
                 <span className="glyphicon glyphicon-log-in"></span> Login
             </NavLink></li>
         </ul>
@@ -93,7 +93,6 @@ function getDisableNav() {
 }
 
 function mapStateToProps({users, authedUser}) {
-    console.log('From store ', authedUser);
     return {
         user: users[authedUser],
     }

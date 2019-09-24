@@ -13,14 +13,11 @@ import Login from "./Login";
 class App extends Component {
 
     componentDidMount() {
-        // if(this.props.authedUser !== null) {
         this.props.dispatch(handleInitialData())
-        // }
     }
 
 
     render() {
-        console.log('THe page ', this.props.authedUser);
         return (
             <Router>
                 <Fragment>
