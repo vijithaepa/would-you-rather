@@ -14,13 +14,13 @@ To run the application:
 * Functionality is detailed in the `PROJECT.md` file, under `App Functionality`
 
 ## App Functionality
-* User will be redirect to login page at first: 
+* User will be redirect to login page at first or whenever user try to access a page without login first: 
 ![alt text](screens/login.png "Login page")
 
-* Once user logged in, will be direct to home page where user can see the both Unanswered and answered questions. But the Unanswered tab will be default selected.
+* Once user is logged in, will be direct to home page where user can see the both Unanswered and Answered questions. But the Unanswered tab will be selected as default.
 ![alt text](screens/Dashboard.png "Dashboard")
 
-* When user click on the "View Poll" button, will taken to answer the poll (if it's unanswered)
+* When the user click on the "View Poll" button, will be taken to answer the poll (if it's unanswered)
 ![alt text](screens/questions.png "Question")
 
 * If the question is already answered, then will be taken to result page.
@@ -34,10 +34,5 @@ To run the application:
 
 
 
-
-
-```
-Avatar images are taken from : 
-  
-<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"         title="Flaticon">www.flaticon.com</a></div>
-```
+##Avatar images are taken from : 
+Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)
