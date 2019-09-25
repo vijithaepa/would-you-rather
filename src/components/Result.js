@@ -12,7 +12,7 @@ class Result extends Component {
         const opTwoVotes = question.optionTwo.votes.length;
         const opOnePercent = Math.round((opOneVotes / totalVotes) * 100 * 100) / 100;
         const opTwoPercent = Math.round((opTwoVotes / totalVotes) * 100 * 100) / 100;
-        console.log("Percent ", opOnePercent, opTwoPercent)
+
         return (
             <div className="panel panel-default result">
                 <div className="panel-heading">Asked by {author.name}:</div>
