@@ -34,5 +34,5 @@ To run the application:
 
 
 
-##Avatar images are taken from : 
+## Avatar images are taken from : 
 Icons made by [Freepik](https://www.flaticon.com/authors/freepik) from [www.flaticon.com](https://www.flaticon.com/)
