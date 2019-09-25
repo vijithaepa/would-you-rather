@@ -5,11 +5,16 @@ import { withRouter } from "react-router-dom";
 import Poll from "./Poll";
 import Result from "./Result";
 import Login from "./Login";
+import { NotFound } from "./NotFoundPage";
 
 class QuestionPage extends Component {
 
     render() {
-        const {answered, authedUser} = this.props;
+        const {answered, authedUser, question} = this.props;
+
+        if(question === null) {
+            return <NotFound />
+        }
         return (
             <div>
                 {authedUser === null && <Login/>}

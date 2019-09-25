@@ -12,7 +12,7 @@ class Result extends Component {
         const opTwoVotes = question.optionTwo.votes.length;
         const opOnePercent = Math.round((opOneVotes / totalVotes) * 100 * 100) / 100;
         const opTwoPercent = Math.round((opTwoVotes / totalVotes) * 100 * 100) / 100;
-
+        console.log("Percent ", opOnePercent, opTwoPercent)
         return (
             <div className="panel panel-default result">
                 <div className="panel-heading">Asked by {author.name}:</div>
@@ -30,7 +30,8 @@ class Result extends Component {
                                 <div className={'result' + (yourVote === 'optionOne' ? ' voted' : '')}>
                                     <span className='rather-text'>Would you rather {question.optionOne.text}</span>
                                     <div className="progress">
-                                        <div className="progress-bar" role="progressbar" aria-valuenow='0'
+                                        <div className={'progress-bar progress-bar-striped active ' + (opOnePercent < 20 ? 'dark-percent' : '')} role="progressbar"
+                                             aria-valuenow='0'
                                              aria-valuemin="0"
                                              aria-valuemax="100" style={{"width": `${opOnePercent}%`}}>{opOnePercent}%
                                         </div>
@@ -40,7 +41,8 @@ class Result extends Component {
                                 <div className={'result' + (yourVote === 'optionTwo' ? ' voted' : '')}>
                                     <span className='rather-text'>Would you rather {question.optionTwo.text}</span>
                                     <div className="progress">
-                                        <div className="progress-bar" role="progressbar" aria-valuenow="0"
+                                        <div
+                                            className={'progress-bar progress-bar-striped active ' + (opTwoPercent < 20 ? 'dark-percent' : '')} role="progressbar" aria-valuenow="0"
                                              aria-valuemin="0"
                                              aria-valuemax="100" style={{"width": `${opTwoPercent}%`}}>{opTwoPercent}%
                                         </div>
