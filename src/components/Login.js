@@ -28,13 +28,13 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="panel panel-default">
+            <div className="panel panel-default container">
                 <div className="panel-heading text-center">
                     <h3>Welcome to the Would You Rather App!</h3>
                     <p>Please sign in to continue</p>
                 </div>
                 <div className="panel-body">
-                    <div className="text-center">
+                    <div className="text-center logo">
                         <img
                             src='/assets/react-logo.png'
                             alt='logo'

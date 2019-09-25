@@ -35,18 +35,18 @@ class Poll extends Component {
         const {question, author} = this.props;
         const {id, avatar} = question;
         return (
-            <div className="container panel panel-default">
+            <div className="container panel panel-default poll">
                 <div className="panel-heading">{author.name} asks:</div>
                 <div className="panel-body">
                     <div className='media row'>
                         <div className="row">
-                            <div className="col-sm-3">
+                            <div className="col-sm-5">
                                 <img
                                     src={avatar}
                                     alt={`Avatar of ${avatar}`}
                                     className='img-circle avatar'/>
                             </div>
-                            <div className="col-sm-9 left-side-line question-body">
+                            <div className="col-sm-7 left-side-line question-body">
                                 <p className='question'> Would you rather...</p>
                                 {/*<div className='question-header'> Would you rather</div>*/}
 
@@ -61,7 +61,7 @@ class Poll extends Component {
                                     </label>
                                 </div>
 
-                                <button disabled={this.state.answer === ''} onClick={(e) => this.submitPoll(e, id)}>
+                                <button className='btn btn-primary btn-sm' disabled={this.state.answer === ''} onClick={(e) => this.submitPoll(e, id)}>
                                     Submit
                                 </button>
                             </div>

@@ -14,7 +14,7 @@ class Result extends Component {
         const opTwoPercent = Math.round((opTwoVotes / totalVotes) * 100 * 100) / 100;
 
         return (
-            <div className="panel panel-default">
+            <div className="panel panel-default result">
                 <div className="panel-heading">Asked by {author.name}:</div>
                 <div className="panel-body">
                     <div className='media row'>
@@ -25,7 +25,7 @@ class Result extends Component {
                                     alt={`Avatar of ${author.avatarURL}`}
                                     className='img-circle avatar'/>
                             </div>
-                            <div className="col-sm-9 left-side-line question-body">
+                            <div className="col-sm-9 left-side-line result-body">
                                 <h3> Results:</h3>
                                 <div className={'result' + (yourVote === 'optionOne' ? ' voted' : '')}>
                                     <span className='rather-text'>Would you rather {question.optionOne.text}</span>

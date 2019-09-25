@@ -6,7 +6,7 @@ class Score extends Component {
     render() {
         const {user, answerCount, questionCount} = this.props;
         return (
-            <div className='media row'>
+            <div className='media row score'>
                 <div className="well col-sm-12 well-bg-white">
                     <div className="row">
                         <div className="col-sm-3">

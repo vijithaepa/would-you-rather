@@ -13,18 +13,18 @@ class QuestionSummary extends Component {
     render() {
         const {question, author} = this.props;
         return (
-            <div className="panel panel-default">
+            <div className="panel panel-default question-summary">
                 <div className="panel-heading">{author.name} asks:</div>
                 <div className="panel-body">
                     <div className='media row'>
                         <div className="row">
-                            <div className="col-sm-3">
+                            <div className="col-sm-5">
                                 <img
                                     src={author.avatarURL}
                                     alt={`Avatar of ${author.avatarURL}`}
                                     className='img-circle avatar'/>
                             </div>
-                            <div className="col-sm-9 left-side-line question-body">
+                            <div className="col-sm-7 left-side-line question-body">
                                 <p className='question'> Would you rather</p>
                                 <p className='question-option'>{question.optionOne.text.substring(0, 20)}...
                                     OR {question.optionTwo.text.substring(0, 20)}...

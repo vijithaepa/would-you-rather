@@ -25,12 +25,12 @@ button[disabled] {
 .btn {
     text-transform: uppercase;
     margin: 35px auto;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid rgba(0, 0, 0, .29);
     cursor: pointer;
     background: #fff;
-    font-size: 16px;
-    width: 250px;
+    font-size: 14px;
+    width: 100%;
     position: relative;
 }
 
@@ -90,9 +90,17 @@ hr {
     background-color: lightseagreen;
 }
 
-.avatar {
-    height: 130px;
+.poll .avatar, .question-summary .avatar, .result .avatar, .score .avatar {
+    width: 90%;
+    /*height: 170px;*/
+    align-items: center;
 }
+
+.logo .avatar {
+    height: 180px;
+    align-items: center;
+}
+
 
 .rather-text {
     height: 30px;
@@ -103,6 +111,8 @@ hr {
     padding: 22px;
     border-style: none;
     border-radius: 8px;
+    overflow: hidden;
+    position: relative;
     margin: 13px 25px;
     box-shadow: 0px 0px 5px rgba(50, 161, 168, 0.6);
 }
@@ -110,23 +120,16 @@ hr {
 .result.voted {
     background: #d0f7ee;
 }
-.
-question-body div.voted:after {
-    content: " ";
+
+.result.voted:before {
+    content: "Your Vote";
     position: absolute;
-    background-color: #ccc;
+    right: 0px;
+    top: 0px;
+    padding: 4px 10px;
     color: #fff;
-    top: 200px;
-    left: 490px;
-    padding: 2px 15px;
-    text-transform: uppercase;
-    transform: rotate(45deg);
-    font-size: 10px;
-
-}
-
-.voted {
-    content: 'You voted';
+    border-bottom-left-radius: 12px;
+    background-color: #548aec;
 }
 
 button.btn.btn-primary {
@@ -214,6 +217,10 @@ button.btn.btn-primary {
     font-weight: bold;
 }
 
+.question-body {
+    height: 150px;
+}
+
 .question {
 
 }
@@ -232,12 +239,12 @@ button.btn.btn-primary {
     background-color: gold;
 }
 
-.leaderboard li:nth-child(2) .well:before{
+.leaderboard li:nth-child(2) .well:before {
     content: "Silver";
     background-color: silver;
 }
 
-.leaderboard li:nth-child(3) .well:before{
+.leaderboard li:nth-child(3) .well:before {
     content: "bronze";
     background-color: #83700e;
 }
@@ -281,4 +288,8 @@ span.nav-link.ml-4.mr-4 {
     background: #5cd1be;
     width: 100%;
     color: #fff;
+}
+
+panel {
+
 }
