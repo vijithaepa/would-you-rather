@@ -22,8 +22,9 @@ class Login extends Component {
         const {dispatch} = this.props;
         dispatch(setAuthedUser(this.state.userId));
 
-        // Redirect to Question Page
-        this.props.history.push('/') // When rendered by react-router
+        let from = this.props.location.pathname === '/login' ? '/' : this.props.location.pathname || '/'
+        console.log('Path ', from)
+        this.props.history.push(from)
     };
 
     render() {

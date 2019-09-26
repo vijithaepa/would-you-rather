@@ -5,7 +5,8 @@ import { withRouter } from "react-router-dom";
 import Poll from "./Poll";
 import Result from "./Result";
 import Login from "./Login";
-import { NotFound } from "./NotFoundPage";
+import NotFound from "./NotFoundPage";
+
 
 class QuestionPage extends Component {
 

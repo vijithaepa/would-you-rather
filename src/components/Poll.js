@@ -28,7 +28,10 @@ class Poll extends Component {
         }));
 
         // Redirect to Question Page
-        this.props.history.push(`/questions/${qid}`) // When rendered by react-router
+        this.props.history.push({
+         pathname: `/questions/${qid}`,
+         state: {from: {pathname: `/questions/${qid}`}}
+        }) // When rendered by react-router
     };
 
     render() {
